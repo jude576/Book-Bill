@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +29,7 @@
         <header class="w-full max-w-4xl bg-white p-6 rounded-t-3xl shadow-md mb-8">
             <div class="flex items-center justify-between">
                 <!-- Simple SVG Logo for "Book & Bill" -->
-                <a href="#" class="flex items-center space-x-2">
+                <a href="#" id="homeLogoLink" class="flex items-center space-x-2">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" fill="#3B82F6"/>
                         <path d="M12 4.79L4.06 8.5L12 12.21L19.94 8.5L12 4.79Z" fill="#BFDBFE"/>
@@ -37,7 +37,7 @@
                     </svg>
                     <span class="text-2xl font-extrabold text-blue-700">Book & Bill</span>
                 </a>
-                <!-- Navigation (optional, for future pages) -->
+                <!-- Navigation -->
                 <nav>
                     <button id="showSignupBtnHeader" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
                         Sign Up
@@ -91,7 +91,8 @@
         <!-- Sign-up Page Section (Initially Hidden) -->
         <div id="signupPage" class="w-full max-w-md bg-white p-8 rounded-b-3xl shadow-lg hidden">
             <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Join the Book & Bill Beta</h2>
-            <form id="signupForm" class="space-y-6">
+            <!-- IMPORTANT: data-netlify="true" for Netlify Forms -->
+            <form id="signupForm" class="space-y-6" data-netlify="true">
                 <div>
                     <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
                     <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -99,6 +100,26 @@
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
                     <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="business_type" class="block text-sm font-medium text-gray-700">Business Type</label>
+                    <select id="business_type" name="business_type" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-white">
+                        <option value="">Select your business type</option>
+                        <option value="fence">Fence Installation/Repair</option>
+                        <option value="pressure_washing">Pressure Washing</option>
+                        <option value="landscaping">Landscaping</option>
+                        <option value="hvac">HVAC Services</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical Services</option>
+                        <option value="cleaning">Cleaning Services</option>
+                        <option value="painting">Painting</option>
+                        <option value="roofing">Roofing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="how_send_quotes" class="block text-sm font-medium text-gray-700">How are you sending quotes now?</label>
+                    <textarea id="how_send_quotes" name="how_send_quotes" rows="3" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"></textarea>
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
@@ -116,6 +137,35 @@
             </form>
         </div>
 
+        <!-- Thank You Message Section (Initially Hidden) -->
+        <div id="thankYouMessage" class="w-full max-w-xl bg-white p-8 rounded-b-3xl shadow-lg hidden">
+            <div class="mb-6">
+                <svg class="mx-auto h-20 w-20 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight mb-4 text-gray-900">
+                Thank You for Your Interest!
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-700 mb-6">
+                Your sign-up for the Book & Bill beta has been successfully received.
+            </p>
+            <p class="text-md text-gray-600 mb-8">
+                As we're launching with just **10 local pros in Louisiana**, we'll be reviewing submissions and will reach out personally to selected participants within the next few days with access details.
+            </p>
+            <p class="text-md text-gray-600 mb-8">
+                We appreciate your patience and look forward to potentially working with you to revolutionize local service businesses!
+            </p>
+            <div class="space-y-4">
+                <button type="button" id="backToHomeFromThankYouBtn" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                    Back to Book & Bill Home
+                </button>
+                <p class="text-sm text-gray-500 mt-4">
+                    Follow us for updates! (e.g., <a href="#" class="text-blue-500 hover:underline">Facebook</a>, <a href="#" class="text-blue-500 hover:underline">LinkedIn</a>)
+                </p>
+            </div>
+        </div>
+
         <!-- Footer Section -->
         <footer class="w-full max-w-4xl py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm mt-8">
             <p>Built for local service pros who want to work smarter, not harder.</p>
@@ -128,49 +178,76 @@
         // Get references to the elements
         const landingPage = document.getElementById('landingPage');
         const signupPage = document.getElementById('signupPage');
+        const thankYouMessage = document.getElementById('thankYouMessage'); // New element
         const mainCtaButton = document.getElementById('mainCtaButton');
         const showSignupBtnHeader = document.getElementById('showSignupBtnHeader');
         const backToHomeBtn = document.getElementById('backToHomeBtn');
+        const backToHomeFromThankYouBtn = document.getElementById('backToHomeFromThankYouBtn'); // New button
         const signupForm = document.getElementById('signupForm');
         const messageBox = document.getElementById('messageBox');
+        const homeLogoLink = document.getElementById('homeLogoLink'); // Logo link
 
-        // Function to show the sign-up page and hide the landing page
+        // Function to show the landing page and hide others
+        function showLanding() {
+            landingPage.classList.remove('hidden');
+            signupPage.classList.add('hidden');
+            thankYouMessage.classList.add('hidden');
+        }
+
+        // Function to show the sign-up page and hide others
         function showSignup() {
             landingPage.classList.add('hidden');
             signupPage.classList.remove('hidden');
+            thankYouMessage.classList.add('hidden');
             messageBox.classList.add('hidden'); // Hide any previous messages
             messageBox.textContent = '';
             signupForm.reset(); // Clear form fields
         }
 
-        // Function to show the landing page and hide the sign-up page
-        function showLanding() {
+        // Function to show the thank you message and hide others
+        function showThankYou() {
+            landingPage.classList.add('hidden');
             signupPage.classList.add('hidden');
-            landingPage.classList.remove('hidden');
+            thankYouMessage.classList.remove('hidden');
         }
+
+        // Initialize: Show landing page on load
+        document.addEventListener('DOMContentLoaded', showLanding);
 
         // Event listeners for buttons
         mainCtaButton.addEventListener('click', showSignup);
         showSignupBtnHeader.addEventListener('click', showSignup);
         backToHomeBtn.addEventListener('click', showLanding);
+        backToHomeFromThankYouBtn.addEventListener('click', showLanding); // New listener for thank you page button
+        homeLogoLink.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            showLanding(); // Show landing page when logo is clicked
+        });
 
-        // Handle sign-up form submission
+
+        // Handle sign-up form submission (client-side validation and then show thank you)
         signupForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
+            // Netlify Forms will handle the actual submission because of data-netlify="true"
+            // We prevent default here only if client-side validation fails.
+            // If validation passes, the form will submit and Netlify will process it.
 
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const businessType = document.getElementById('business_type').value;
+            const howSendQuotes = document.getElementById('how_send_quotes').value;
             const password = document.getElementById('password').value;
 
             // Simple client-side validation
-            if (name.trim() === '' || email.trim() === '' || password.trim() === '') {
-                messageBox.textContent = 'Please fill in all fields.';
+            if (name.trim() === '' || email.trim() === '' || businessType === '' || howSendQuotes.trim() === '' || password.trim() === '') {
+                event.preventDefault(); // Prevent actual form submission and Netlify redirect
+                messageBox.textContent = 'Please fill in all required fields.';
                 messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
                 messageBox.classList.remove('hidden');
                 return;
             }
 
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                event.preventDefault(); // Prevent actual form submission and Netlify redirect
                 messageBox.textContent = 'Please enter a valid email address.';
                 messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
                 messageBox.classList.remove('hidden');
@@ -178,27 +255,31 @@
             }
 
             if (password.length < 6) {
+                event.preventDefault(); // Prevent actual form submission and Netlify redirect
                 messageBox.textContent = 'Password must be at least 6 characters long.';
                 messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
                 messageBox.classList.remove('hidden');
                 return;
             }
 
-            // Simulate successful sign-up
-            messageBox.textContent = 'Sign-up successful! Welcome, ' + name + '!';
-            messageBox.className = 'text-center py-2 px-4 rounded-md bg-green-100 text-green-700 block';
-            messageBox.classList.remove('hidden');
+            // If client-side validation passes, Netlify will process the form.
+            // After Netlify processes it, it will usually trigger a redirect.
+            // However, since we want a single-page experience, we'll manually show the thank you message
+            // and prevent Netlify's default redirect by adding a hidden input field that Netlify looks for.
+            // For Netlify Forms to work without a redirect, you typically add a hidden input named 'form-name'.
+            // However, for a SPA, it's often better to handle the display and let Netlify capture the data.
+            // The `data-netlify-redirect` attribute is removed, so Netlify will just capture the form.
+            // We then manually show the thank you message.
 
-            // In a real application, you would send this data to a server here.
-            console.log('Sign-up Data:', { name, email, password });
-
-            // Optionally, clear the form or redirect after a delay
-            setTimeout(() => {
-                signupForm.reset();
-                messageBox.classList.add('hidden');
-                // You might automatically redirect to the home page or a dashboard here
-                // showLanding();
-            }, 3000);
+            // Simulate form submission success and show thank you message
+            // In a real application, you might use fetch() here to submit asynchronously
+            // and then show the thank you message after a successful response.
+            // For now, we'll just show the thank you message directly.
+            event.preventDefault(); // Prevent default form submission to stay on the page
+            showThankYou();
+            console.log('Form data submitted (client-side):', { name, email, businessType, howSendQuotes, password });
+            // Netlify will still capture this form submission because of data-netlify="true"
+            // You will see the submissions in your Netlify dashboard under "Forms".
         });
     </script>
 </body>
