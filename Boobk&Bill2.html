@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book & Bill — Automate & Sign Up</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures footer stays at bottom */
+        }
+        main {
+            flex-grow: 1; /* Allows main content to take up available space */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+
+        <!-- Header with Logo -->
+        <header class="w-full max-w-4xl bg-white p-6 rounded-t-3xl shadow-md mb-8">
+            <div class="flex items-center justify-between">
+                <!-- Simple SVG Logo for "Book & Bill" -->
+                <a href="#" class="flex items-center space-x-2">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" fill="#3B82F6"/>
+                        <path d="M12 4.79L4.06 8.5L12 12.21L19.94 8.5L12 4.79Z" fill="#BFDBFE"/>
+                        <path d="M12 13.79L4.06 17.5L12 21.21L19.94 17.5L12 13.79Z" fill="#60A5FA"/>
+                    </svg>
+                    <span class="text-2xl font-extrabold text-blue-700">Book & Bill</span>
+                </a>
+                <!-- Navigation (optional, for future pages) -->
+                <nav>
+                    <button id="showSignupBtnHeader" class="bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                        Sign Up
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Landing Page Section -->
+        <main id="landingPage" class="w-full max-w-4xl bg-white p-8 rounded-b-3xl shadow-lg text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 text-gray-900 rounded-lg">
+                Book Jobs. Send Quotes. Get Paid — Automatically.
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl mb-8 text-gray-700 opacity-90 rounded-lg">
+                Your AI assistant for local service pros — save time with instant quotes, follow-ups, and payments.
+            </p>
+            <button id="mainCtaButton" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                Join the Free Beta — First Month Free
+            </button>
+
+            <!-- Problem Section -->
+            <section class="py-12 mt-12 bg-gray-50 rounded-xl shadow-inner">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Why You Should Care</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-left px-4">
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="h-6 w-6 text-red-500 flex-shrink-0 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path></svg>
+                            <span>Stop wasting time manually typing out quotes that slow you down.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-6 w-6 text-red-500 flex-shrink-0 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path></svg>
+                            <span>Never miss a follow-up again — keep your customers engaged automatically.</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="h-6 w-6 text-red-500 flex-shrink-0 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path></svg>
+                            <span>Get paid faster without waiting or chasing down payments.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="h-6 w-6 text-red-500 flex-shrink-0 mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2A9 9 0 111 12a9 9 0 0118 0z"></path></svg>
+                            <span>Say goodbye to endless calls and texts trying to close the deal.</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sign-up Page Section (Initially Hidden) -->
+        <div id="signupPage" class="w-full max-w-md bg-white p-8 rounded-b-3xl shadow-lg hidden">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Join the Book & Bill Beta</h2>
+            <form id="signupForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                </div>
+                <div id="messageBox" class="text-center py-2 px-4 rounded-md hidden"></div>
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        Sign Up Now
+                    </button>
+                </div>
+                <button type="button" id="backToHomeBtn" class="w-full text-center text-blue-600 hover:underline mt-4">
+                    Back to Home
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="w-full max-w-4xl py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-600 text-sm mt-8">
+            <p>Built for local service pros who want to work smarter, not harder.</p>
+            <p class="mt-2">Made in Louisiana 💪</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Get references to the elements
+        const landingPage = document.getElementById('landingPage');
+        const signupPage = document.getElementById('signupPage');
+        const mainCtaButton = document.getElementById('mainCtaButton');
+        const showSignupBtnHeader = document.getElementById('showSignupBtnHeader');
+        const backToHomeBtn = document.getElementById('backToHomeBtn');
+        const signupForm = document.getElementById('signupForm');
+        const messageBox = document.getElementById('messageBox');
+
+        // Function to show the sign-up page and hide the landing page
+        function showSignup() {
+            landingPage.classList.add('hidden');
+            signupPage.classList.remove('hidden');
+            messageBox.classList.add('hidden'); // Hide any previous messages
+            messageBox.textContent = '';
+            signupForm.reset(); // Clear form fields
+        }
+
+        // Function to show the landing page and hide the sign-up page
+        function showLanding() {
+            signupPage.classList.add('hidden');
+            landingPage.classList.remove('hidden');
+        }
+
+        // Event listeners for buttons
+        mainCtaButton.addEventListener('click', showSignup);
+        showSignupBtnHeader.addEventListener('click', showSignup);
+        backToHomeBtn.addEventListener('click', showLanding);
+
+        // Handle sign-up form submission
+        signupForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple client-side validation
+            if (name.trim() === '' || email.trim() === '' || password.trim() === '') {
+                messageBox.textContent = 'Please fill in all fields.';
+                messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                messageBox.textContent = 'Please enter a valid email address.';
+                messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            if (password.length < 6) {
+                messageBox.textContent = 'Password must be at least 6 characters long.';
+                messageBox.className = 'text-center py-2 px-4 rounded-md bg-red-100 text-red-700 block';
+                messageBox.classList.remove('hidden');
+                return;
+            }
+
+            // Simulate successful sign-up
+            messageBox.textContent = 'Sign-up successful! Welcome, ' + name + '!';
+            messageBox.className = 'text-center py-2 px-4 rounded-md bg-green-100 text-green-700 block';
+            messageBox.classList.remove('hidden');
+
+            // In a real application, you would send this data to a server here.
+            console.log('Sign-up Data:', { name, email, password });
+
+            // Optionally, clear the form or redirect after a delay
+            setTimeout(() => {
+                signupForm.reset();
+                messageBox.classList.add('hidden');
+                // You might automatically redirect to the home page or a dashboard here
+                // showLanding();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
